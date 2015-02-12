@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<br>
+	<a href="{{ path('test_homepage') }}" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span></a>
+	<h1>Edit Project</h1>
+	
+	<div class="row">
+		<div class="col-lg-5">
+			{{ form_start(edit_form) }}
+			
+			<div class="form-group">
+				{{ form_label(edit_form.title) }}
+				{{ form_widget(edit_form.title)}}
+			</div>
+			<div class="form-group">
+				{{ form_label(edit_form.completed) }}
+				{{ form_widget(edit_form.completed)}}
+			</div>
+			<div class="form-group">
+				{{ form_label(edit_form.due_date) }}
+				{{ form_widget(edit_form.due_date)}}
+			</div>
+			{{ form_end(edit_form) }}
+		</div>
+	</div>
+{% endblock %}

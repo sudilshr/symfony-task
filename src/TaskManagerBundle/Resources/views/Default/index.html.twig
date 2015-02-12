@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<h1>Projects</h1>
+	<a class="btn btn-success" href="{{ path('test_new') }}">Create Projects</a>
+	
+	<table class="table">
+      <caption>Project`s List</caption>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Completed</th>
+          <th>Due Date</th>
+          <th>Manage</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for project in projects %}
+        <tr>
+          <td>{{ project.title }}</td>
+          <td>
+          	{% if project.completed == 0 %}
+          		{{ project.getPercentComplete|number_format(2, '.', ',') }} %
+          	{% else %}
+          		Completed
+          	{% endif %}
+          </td>
+          <td>{{ project.updated|date('M d Y') }}</td>
+          <td>
+          	
+          	<a class="btn btn-primary" href="{{ path('projects_edit', { 'id': project.id }) }}">Update</a>
+          	<a class="btn btn-danger" href="{{ path('projects_delete', { 'id': project.id }) }}">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

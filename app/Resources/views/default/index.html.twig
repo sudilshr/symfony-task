@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    Welcome to the Task Management Application
+    <br>
+	{% for project in projects  %}
+		{{ project.title }}
+		<br>
+		
+		<br> 
+		{{ project.created|date }}
+		<br> 
+		{{ project.updated|date }}
+		<br> 
+		{{ project.completed }}
+	{% endfor  %}
+{% endblock %}

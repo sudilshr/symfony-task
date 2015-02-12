@@ -1,0 +1,31 @@
+test_homepage:
+    path:     /
+    defaults: { _controller: "TestBundle:Default:index" }
+    
+test_new:
+    path: /new
+    defaults: { _controller: "TestBundle:Default:new"}
+    
+projects_create:
+    path:     /create
+    defaults: { _controller: "TestBundle:Default:create" }
+    requirements: { _method: post }
+    
+projects_edit:
+    path: /{id}/edit
+    defaults: { _controller: "TestBundle:Default:edit"}
+    
+projects_update:
+    path: /{id}/update
+    defaults: { _controller: "TestBundle:Default:update" }
+    requirements: { _method: post|put }
+    
+projects_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "TestBundle:Default:delete" }
+    requirements: { _method: post|delete }
+    
+projects_test:
+    path: /test
+    defaults: { _controller: "TestBundle:Default:test"}
+
